@@ -29,7 +29,7 @@ public class MiddleSleepingSession implements SleepAnalysisFunction {
                 .toList()
                 .stream()
                 .reduce(0L,Long::sum);
-        long avgMinutes = sleepingSessionsList.isEmpty() ? 0 : sumSleepAllSessionMinutes/sleepingSessionList.size();
+        long avgMinutes = sleepingSessionsList.isEmpty() ? 0 : sumSleepAllSessionMinutes / sleepingSessionList.size();
         return new SleepAnalysisResult(toString(), avgMinutes);
     }
 
