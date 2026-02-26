@@ -49,8 +49,8 @@ public class SleepTrackerAppTest {
     @Test
     public void testCountAllSleepingSession() {
         CountAllSleepingSession countAllSleepingSession = new CountAllSleepingSession(testSleepingSessionList);
-        SleepAnalysisResult sleepAnalysisResult = countAllSleepingSession.apply(countAllSleepingSession.
-                getSleepingSessionList());
+        SleepAnalysisResult sleepAnalysisResult = countAllSleepingSession.apply(countAllSleepingSession
+                .getSleepingSessionList());
         Assertions.assertEquals(8, sleepAnalysisResult.getResultFunction());
         System.out.println();
         System.out.println("Если список не пустой!");
@@ -61,8 +61,8 @@ public class SleepTrackerAppTest {
     @Test
     public void testCountBadSleepingSession() {
         CountBadSleepingSession countBadSleepingSession = new CountBadSleepingSession(testSleepingSessionList);
-        SleepAnalysisResult sleepAnalysisResult = countBadSleepingSession.apply(countBadSleepingSession.
-                getSleepingSessionList());
+        SleepAnalysisResult sleepAnalysisResult = countBadSleepingSession.apply(countBadSleepingSession
+                .getSleepingSessionList());
         Assertions.assertEquals(1, sleepAnalysisResult.getResultFunction());
         System.out.println();
         System.out.println("Если список не пустой!");
@@ -95,8 +95,8 @@ public class SleepTrackerAppTest {
     @Test
     public void testMiddleSleepingSession() {
         MiddleSleepingSession middleSleepingSession = new MiddleSleepingSession(testSleepingSessionList);
-        SleepAnalysisResult sleepAnalysisResult = middleSleepingSession.apply(middleSleepingSession.
-                getSleepingSessionList());
+        SleepAnalysisResult sleepAnalysisResult = middleSleepingSession.apply(middleSleepingSession
+                .getSleepingSessionList());
         Assertions.assertEquals(343L, sleepAnalysisResult.getResultFunction());
         System.out.println();
         System.out.println("Если список не пустой!");
@@ -108,8 +108,8 @@ public class SleepTrackerAppTest {
     public void testCountAllSleepingSessionEmpty() {
         List<SleepingSession> listSession = Collections.emptyList();
         CountAllSleepingSession countAllSleepingSession = new CountAllSleepingSession(listSession);
-        SleepAnalysisResult sleepAnalysisResult = countAllSleepingSession.apply(countAllSleepingSession.
-                getSleepingSessionList());
+        SleepAnalysisResult sleepAnalysisResult = countAllSleepingSession.apply(countAllSleepingSession
+                .getSleepingSessionList());
         Assertions.assertEquals(0, sleepAnalysisResult.getResultFunction());
         System.out.println();
         System.out.println("Если список пустой!");
@@ -121,8 +121,8 @@ public class SleepTrackerAppTest {
     public void testCountBadSleepingSessionEmpty() {
         List<SleepingSession> listSession = Collections.emptyList();
         CountBadSleepingSession countBadSleepingSession = new CountBadSleepingSession(listSession);
-        SleepAnalysisResult sleepAnalysisResult = countBadSleepingSession.apply(countBadSleepingSession.
-                getSleepingSessionList());
+        SleepAnalysisResult sleepAnalysisResult = countBadSleepingSession.apply(countBadSleepingSession
+                .getSleepingSessionList());
         Assertions.assertEquals(0, sleepAnalysisResult.getResultFunction());
         System.out.println();
         System.out.println("Если список пустой!");
@@ -158,8 +158,8 @@ public class SleepTrackerAppTest {
     public void testMiddleSleepingSessionEmpty() {
         List<SleepingSession> listSession = Collections.emptyList();
         MiddleSleepingSession middleSleepingSession = new MiddleSleepingSession(listSession);
-        SleepAnalysisResult sleepAnalysisResult = middleSleepingSession.apply(middleSleepingSession.
-                getSleepingSessionList());
+        SleepAnalysisResult sleepAnalysisResult = middleSleepingSession.apply(middleSleepingSession
+                .getSleepingSessionList());
         Assertions.assertEquals(0L, sleepAnalysisResult.getResultFunction());
         System.out.println();
         System.out.println("Если список пустой!");
