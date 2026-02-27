@@ -38,9 +38,9 @@ public class SleepTrackerAppTest {
             while ((lines = bufferedReader.readLine()) != null) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
                 String[] splitArray = lines.split(";");
-                sleepingSession = new SleepingSession(LocalDateTime.parse(splitArray[0].trim(), formatter)
-                        , LocalDateTime.parse(splitArray[1].trim(), formatter)
-                        , SleepQuality.valueOf(splitArray[2].trim()));
+                sleepingSession = new SleepingSession(LocalDateTime.parse(splitArray[0].trim(), formatter),
+                        LocalDateTime.parse(splitArray[1].trim(), formatter),
+                        SleepQuality.valueOf(splitArray[2].trim()));
                 testSleepingSessionList.add(sleepingSession);
             }
             testSleepingSessionList.forEach(System.out::println);
@@ -186,14 +186,14 @@ public class SleepTrackerAppTest {
     public void testChronotypeUserOwl() {
         List<SleepingSession> sessionList = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
-        SleepingSession session = new SleepingSession( LocalDateTime.parse("01.10.25 23:50", formatter)
-                , LocalDateTime.parse("02.10.25 10:10", formatter), GOOD);
-        SleepingSession session1 = new SleepingSession(LocalDateTime.parse("03.10.25 21:50", formatter)
-                , LocalDateTime.parse("04.10.25 06:00", formatter), GOOD);
-        SleepingSession session2 = new SleepingSession(LocalDateTime.parse("06.10.25 22:30", formatter)
-                , LocalDateTime.parse("07.10.25 08:05", formatter), GOOD);
-        SleepingSession session3 = new SleepingSession(LocalDateTime.parse("08.10.25 23:50", formatter)
-                , LocalDateTime.parse("09.10.25 09:10", formatter), GOOD);
+        SleepingSession session = new SleepingSession(LocalDateTime.parse("01.10.25 23:50", formatter),
+                LocalDateTime.parse("02.10.25 10:10", formatter), GOOD);
+        SleepingSession session1 = new SleepingSession(LocalDateTime.parse("03.10.25 21:50", formatter),
+                LocalDateTime.parse("04.10.25 06:00", formatter), GOOD);
+        SleepingSession session2 = new SleepingSession(LocalDateTime.parse("06.10.25 22:30", formatter),
+                LocalDateTime.parse("07.10.25 08:05", formatter), GOOD);
+        SleepingSession session3 = new SleepingSession(LocalDateTime.parse("08.10.25 23:50", formatter),
+                LocalDateTime.parse("09.10.25 09:10", formatter), GOOD);
         sessionList.add(session);
         sessionList.add(session1);
         sessionList.add(session2);
