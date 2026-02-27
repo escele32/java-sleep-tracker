@@ -3,11 +3,11 @@ package ru.yandex.practicum.sleeptracker;
 import java.time.Duration;
 import java.util.List;
 
-public class MiddleSleepingSession implements SleepAnalysisFunction {
+public class AverageSleepingSession implements SleepAnalysisFunction {
 
     private final List<SleepingSession> sleepingSessionList;
 
-    public MiddleSleepingSession(List<SleepingSession> sleepingSessionList) {
+    public AverageSleepingSession(List<SleepingSession> sleepingSessionList) {
         this.sleepingSessionList = sleepingSessionList;
     }
 
@@ -29,8 +29,8 @@ public class MiddleSleepingSession implements SleepAnalysisFunction {
                 .toList()
                 .stream()
                 .reduce(0L,Long::sum);
-        long avgMinutes = sleepingSessionsList.isEmpty() ? 0 : sumSleepAllSessionMinutes / sleepingSessionList.size();
-        return new SleepAnalysisResult(toString(), avgMinutes);
+        long averageMinutes = sleepingSessionsList.isEmpty() ? 0 : sumSleepAllSessionMinutes / sleepingSessionList.size();
+        return new SleepAnalysisResult(toString(), averageMinutes);
     }
 
 }

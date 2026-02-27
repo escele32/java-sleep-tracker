@@ -21,10 +21,10 @@ public class CountBadSleepingSession implements SleepAnalysisFunction {
 
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sleepingSessionList) {
-        int count = (int) sleepingSessionList.stream()
+        int numberBadSession = (int) sleepingSessionList.stream()
                 .filter(sleepingSession -> sleepingSession.getSleepQuality() == SleepQuality.BAD)
                 .count();
-        return new SleepAnalysisResult(toString(), count);
+        return new SleepAnalysisResult(toString(), numberBadSession);
     }
 
 }

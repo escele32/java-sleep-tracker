@@ -31,14 +31,14 @@ public class SleeplessNights implements SleepAnalysisFunction {
                         .getEndSleepDateTime().toLocalDate())
                 .collect(Collectors.toList());
 
-        int countNightsSleep = (int) sleepingSessionsList.stream()
+        int numberSleepNight = (int) sleepingSessionsList.stream()
                 .filter(sleepingSession -> {
                     Period period = Period.between(sleepingSession.getBeginningSleepDateTime().toLocalDate(),
                             sleepingSession.getEndSleepDateTime().toLocalDate());
                     return period.getDays() == 1;
                 })
                 .count();
-        int countSleepOneNight = (int) sleepingSessionsList.stream()
+        int numberNightAsleepAndWokeOneDay = (int) sleepingSessionsList.stream()
                 .filter(sleepingSession -> {
                     Period period = Period.between(sleepingSession.getBeginningSleepDateTime().toLocalDate(),
                             sleepingSession.getEndSleepDateTime().toLocalDate());
@@ -47,8 +47,8 @@ public class SleeplessNights implements SleepAnalysisFunction {
                             .toLocalTime().isBefore(LocalTime.of(6,0));
                 })
                 .count();
-        int countSleeplessNights = listAllNights.size() - countNightsSleep - countSleepOneNight;
-        return new SleepAnalysisResult(toString(), countSleeplessNights);
+        int numberSleeplessNights = listAllNights.size() - numberSleepNight - numberNightAsleepAndWokeOneDay;
+        return new SleepAnalysisResult(toString(), numberSleeplessNights);
     }
 
 }

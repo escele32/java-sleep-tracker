@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,22 +26,24 @@ public class SleepTrackerApp {
             listSleepingSession = bufferedReader.lines()
                     .filter(line -> !line.trim().isEmpty())
                     .map(line -> {
-                        String[] split = line.split(";");
-                        if (split.length != 3) {
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
+                        String[] splitArray = line.split(";");
+                        if (splitArray.length != 3) {
                             return null;
                         }
                         try {
                             return new SleepingSession(
-                                    split[0].trim(),
-                                    split[1].trim(),
-                                    SleepQuality.valueOf(split[2].trim())
+                                    LocalDateTime.parse(splitArray[0].trim(), formatter),
+                                    LocalDateTime.parse(splitArray[1].trim(), formatter),
+                                    SleepQuality.valueOf(splitArray[2].trim())
                             );
-                        } catch (Exception e) {
+                        } catch (Exception exception) {
                             return null;
                         }
                     })
                     .filter(session -> session != null)
                     .collect(Collectors.toList());
+            listSleepingSession.forEach(System.out::println);
         } catch (Exception exception) {
             System.out.printf("Ошибка при чтении файла %s: %s\n", filePath.getFileName(), exception.getMessage());
         }
@@ -48,7 +52,7 @@ public class SleepTrackerApp {
                 new CountBadSleepingSession(listSleepingSession),
                 new MinSleepingSession(listSleepingSession),
                 new MaxSleepingSession(listSleepingSession),
-                new MiddleSleepingSession(listSleepingSession),
+                new AverageSleepingSession(listSleepingSession),
                 new SleeplessNights(listSleepingSession),
                 new ChronotypeUser(listSleepingSession));
 
